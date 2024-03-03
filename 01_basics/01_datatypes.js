@@ -42,3 +42,28 @@ const myFunction = function(){
 }
 
 console.log(typeof myObj); //to check the type of any datatype
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Stack (primitive), Heap(non-Primitive)
+
+let myYoutubeName = "ease_at_code"
+
+let anotherName = myYoutubeName
+anotherName = "codeDaily" 
+
+console.log(anotherName);
+console.log(myYoutubeName);
+
+let userOne =  {
+    email: "prashant@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne
+
+userTwo.email = "prashant10@google.com"
+
+console.log(userTwo.email);
+console.log(userOne.email);

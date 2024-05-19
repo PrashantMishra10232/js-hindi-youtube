@@ -12,7 +12,7 @@ const dc_heroes = ["superman","flash","batman"]
 // console.log(typeof all_heroes);
 
 const another_array = [1,2,3,4,5,[4,5,6],7,8,9,[4,5,6,[1,2,3,4]]]
-const real_another_array = another_array.flat(2)
+const real_another_array = another_array.flat(2)  //yeh array ko flat krke likhega jo array m array h unhe or (number) yeh number depth of array jha tk flat krna h dikhaega
 console.log(real_another_array);
 
 console.log(Array.isArray("Hitesh"));

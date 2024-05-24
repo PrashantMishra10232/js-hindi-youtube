@@ -72,6 +72,29 @@ console.log("Hello world");
 // const value = calculatesum(1,2,sum);
 // console.log(value);
 
+function square(a){
+    return a*a;
+}
+function cube(a){
+    return a*a*a;
+}
+function calculate(a,b,fn){
+    const val1 = fn(a)
+    const val2 = fn(b)
+    return val1+val2;
+}
+console.log(calculate(2,3,cube));
+
+////anonymus function//
+
+console.log(calculate(2,3,function(n){
+    return n*n*n;
+}));
+
+
+
+
+
 ////////////////////////////////////////////
 
 // function greet(){

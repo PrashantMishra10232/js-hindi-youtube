@@ -22,3 +22,29 @@ console.log(endTimeInMs - startTimeInMs);
 
 // question 3 ////////////terminal clock///////////////////////////////////////
 
+
+
+// ////////////////////////////////////////////////////Question 4 Easy (FindLargestElement)///////////////////////////////////////////////////////////
+function findLargestElement(numbers) {
+    var max = numbers[0];
+    for(let i = 1; i < numbers.length; i++){
+        if(numbers[i] > max){
+            max = numbers[i]
+        }
+    }
+    return max;
+}
+// ////////////////////////////////////////////////////Question 5 Medium (CountVowels)///////////////////////////////////////////////////////////
+function countVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  let temp = 0;
+  for(let i = 0; i < vowels.length; i++){
+    for(let j = 0; j < str.length; j++){
+      if(str[j].toLowerCase() == vowels[i]){
+        temp++;
+      }
+    }
+  }
+  return temp;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141;">
+    <h1>Amazing images</h1>
+    <ul id="images">
+        <li><img width="200px" id="first" src="https://wallpapers.com/images/featured/z6zwtait8wbpb1ma.jpg" alt="photoshop"></li>
+        <li><img width="200px" id="japan" src="https://wallpapercrafter.com/desktop/127125-pixel-art-pixelated-pixels-digital-art-Stardew-Valley-clouds-mountains-forest-flamingos-landscape.jpg" alt=""></li>
+        <li><img width="200px" id="river" src="https://i.pinimg.com/originals/40/e6/7b/40e67b523c561b4a52c763413683ab99.jpg" alt=""></li>
+        <li><img width="200px" id="owl" src="https://th.bing.com/th/id/OIP.HxTluKQntXdbM0Zr6Yv6pAHaEU?w=253&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></li>
+        <li><img width="200px" id="prayer" src="https://th.bing.com/th/id/R.69d27f95e2e1c16c4102998c8fecd24c?rik=vtIxbz7VFoVBig&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f0%2fa%2f1%2f255621.jpg&ehk=6CvUM7TtiUnS6zB3tBy1P%2bICOZZhwZvvnpTazvG%2bD%2bc%3d&risl=&pid=ImgRaw&r=0" alt=""></li>
+        <li><a href="https://google.com" id="google" style="color: aliceblue;">google</a></li>
+    </ul>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }  //not the best tarika
+
+    //attachEvent()
+    //jquery - on
+
+    //type, timestamp, defaultPrevented
+    //target, toElement, srcElement, currentTarget,
+    //clientX, clientY, screenX, screenY
+    //altKey, ctrlkey, shiftkey, keyCode
+
+
+
+    //bubbling ya event propogation kehte h jb pehle inside element activate hoga phir upr outside pr jaega as a bubble////////////
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
+    }, false) // false isme third parameter h yeh by default false hi rehta h isliye likhna jaruri nhi h
+
+    
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("clicked owl");
+        e.stopPropagation()
+    }, false)
+
+
+    //..false wale case m jo ki default case h isme pehle clicked owl print hoga phir clicked inside the ul
+    //..agr true likh denge false ki jgh jise "capturing" kehte hai toh usme pehle clicked inside the ul phir clicked owl print hoga 
+    //...'stopPropogation use krenge toh code inside element pr hi ruk jaega bhr wala print nhi hoga'
+
+
+    document.getElementById('google').addEventListener('click',function(e){
+        console.log('clicked on google')
+        e.preventDefault();
+    },false)
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+</script>
+</html>

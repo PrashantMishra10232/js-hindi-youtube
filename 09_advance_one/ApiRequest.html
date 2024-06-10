@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size: 2rem;
+            color: aliceblue;
+        }
+
+        .color{
+            color: aliceblue;
+            
+        }
+        table,
+      th,
+      td {
+        border: 1px solid #e7e7e7;
+      }
+    </style>
+</head>
+<body style="background-color: #212121;">
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+    <h1>Hitesh Choudhary github profile</h1>
+    <button type="submit">get</button>
+    <div class="insert"></div>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const state = {
+        followers: null,
+        avatar: null,
+        location: null
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = JSON.parse(this.responseText);
+            state.followers = data.followers;
+            state.avatar = data.avatar_url;
+            state.location = data.location;
+        }
+    };
+
+    xhr.send();
+
+    document.querySelector('button').addEventListener('click', () => {
+        if (state.avatar && state.followers !== null && state.location) {
+            const insert = document.querySelector('.insert');
+            insert.innerHTML = `
+            <div class='color'>
+                <table>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Followers</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td><img src="${state.avatar}" alt="Avatar"></td>
+                        <td>${state.followers}</td>
+                        <td>${state.location}</td>
+                    </tr>
+                </table>
+            </div>`;
+        } else {
+            alert('Data is not yet loaded. Please try again in a moment.');
+        }
+    });
+</script>
+</html>
